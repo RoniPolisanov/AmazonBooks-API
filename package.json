@@ -1,0 +1,26 @@
+{
+  "name": "amazonmustreadapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "enum": "^2.5.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roni Polisanov",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoniPolisanov/WebProjects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RoniPolisanov/WebProjects/issues"
+  },
+  "homepage": "https://github.com/RoniPolisanov/WebProjects#readme",
+  "description": ""
+}

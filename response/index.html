@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <title>Amazon Must-read API</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <header>
+                    <h1>RESTful Service API Documentation : Roni Polisanov</h1>
+                </header>
+                <main>
+                    <article>
+                        <h5> Amazon / Books / <span> Must Read </span></h5>
+                    </article>
+
+                    <h4>GET ALL BOOKS</h4>
+                    <p>Request Method: <span class="badge badge-success">GET</span></p>
+                    <p>Response: All the books in the the must-read library</p>
+                    <p>URL: <a href="https://amazon-book.heroku.com/getAllBooks" class="text-white bg-dark">https://amazon-book.heroku.com/getAllBooks</a></p>
+
+                    <pre> 
+[{
+    "_id": "XXXXXXXXXXXXXXXXXXXX",
+    "Language": "English",
+    "Books": [{
+            "Name": "English Book 1",
+            "Author": "George Orwell",
+            "Publish Date": "July 1, 1950",
+            "Product Code": "978-000000001",
+            "Purchase Link": "https://amzn.to/2rO5gL7"
+        }, {....}, {....}  .....,
+        {
+    "Language": "Spanish",
+    "Books": [{....},{....},{....}]
+        },
+        {
+    "Language": "Russian",
+    "Books": [{....},{....},{....}]
+        }
+    }]
+                    </pre>
+
+                    <h4>GET BOOKS DETAILS BY LANGUAGE</h4>
+                    <p> Request Method: <span class="badge badge-success">POST</span> using POSTMAN or a suitable FORM</p>
+                    <p>Response: All the English/Spanish/Russian language books in the must-read library</p>
+                    <p>URL: <a href="https://amazon-book.heroku.com/getBooksDetails" class="text-white bg-dark">https://amazon-book.heroku.com/getBooksDetails</a></p>
+                    <p>Required Parameters: language</p>
+                    <p>Required Values: "English", "Spanish", "Russian"</p>
+                    <pre> 
+[{
+    "_id": "XXXXXXXXXXXXXXXXXXXX",
+    "Language": "English",
+    "Books": [{
+            "Name": "English Book 1",
+            "Author": "George Orwell",
+            "Publish Date": "July 1, 1950",
+            "Product Code": "978-000000001",
+            "Purchase Link": "https://amzn.to/2rO5gL7"
+        },
+        {
+            "Name": "English Book 2",
+            "Author": "Stephen Hawking",
+            "Publish Date": "September 1, 1998",
+            "Product Code": "978-000000002",
+            "Purchase Link": "https://amzn.to/2GuZ688"
+        }, {...}, {...} ...
+    .........]
+}]
+                    </pre>
+
+
+                    <h4>GET BOOKS DETAILS BY LANGUAGE AND AUTHOR</h4>
+                    <p>Request Method: <span class="badge badge-success">GET</span></p>
+                    <p>Response: All the English/Spanish/Russian language books in the must-read library</p>
+                    <p>URL: <a href="https://amazon-book.heroku.com/getBookDetailsByAuthor/language/author" class="text-white bg-dark">https://amazon-book.heroku.com/getBookDetailsByAuthor/language/author</a></p>
+                    <p>Required Parameters: (1)language, (2)author</p>
+                    <p>Required Values: language - "English", "Spanish", "Russian" | author - "George Orwell", "Stephen Hawking", "Dave Eggers", "Antonovsky Miriola", "Tom Kinjs", "Eduard Ben Israel", "Arkadi Putin" etc.</p>
+                    <p>Example: http://amazon-book.heroku.com/getBookDetailsByAuthor/Russian/Vladimir%20Petrovsky</p>
+                    <h4 id="special">WARNING: Where a space sign appears you must place a "%20"</h4>
+                    <pre>
+[{
+    "_id": "XXXXXXXXXXXXXXXXXXXX",
+    "Books": [
+        {
+            "Name": "Russian Book 2",
+            "Author": "Vladimir Petrovsky",
+            "Publish Date": "September 1, 1998",
+            "Product Code": "978-000000012",
+            "Purchase Link": "https://amzn.to/2GuJ648"
+        }
+    ]
+}]                         
+                    </pre>
+
+                    <h4>GET BOOKS DETAILS BY LANGUAGE AND AUTHOR</h4>
+                    <p>Request Method: <span class="badge badge-success">POST</span> using POSTMAN or a suitable FORM</p>
+                    <p>Response: All the English/Spanish/Russian language books in the must-read library</p>
+                    <p>URL: <a href="https://amazon-book.heroku.com/getBookDetailsByAuthor" class="text-white bg-dark">https://amazon-book.heroku.com/getBookDetailsByAuthor</a></p>
+                    <p>Required Parameters: (1)language, (2)author</p>
+                    <p>Required Values: language - "English", "Spanish", "Russian" | author - "George Orwell", "Stephen Hawking", "Dave Eggers", "Antonovsky Miriola", "Tom Kinjs", "Eduard Ben Israel", "Arkadi Putin" etc.</p>
+                    <p>Example: language = "Spanish", author = "Don Over Dira" </p>
+
+                    <pre> 
+[{
+    "_id": "XXXXXXXXXXXXXXXXXXXX",
+    "Books": [
+        {
+            "Name": "Russian Book 4",
+            "Author": "Alexander Pidaras",
+            "Publish Date": "September 1, 1998",
+            "Product Code": "978-000000014",
+            "Purchase Link": "https://amzn.to/2wnc51K"
+        }
+    ]
+}]
+                    </pre>
+
+                    <h4>GET BOOKS DETAILS BY LANGUAGE AND AUTHOR</h4>
+                    <p>Request Method: <span class="badge badge-success">PUT</span> using POSTMAN or a suitable FORM</p>
+                    <p>Response: All the English/Spanish/Russian language books in the must-read library</p>
+                    <p>URL: <a href="https://amazon-book.heroku.com/getBookDetailsByAuthor" class="text-white bg-dark">https://amazon-book.heroku.com/getBookDetailsByAuthor</a></p>
+                    <p>Required Parameters: (1)language, (2)author</p>
+                    <p>Required Values: language - "English", "Spanish", "Russian" | author - "George Orwell", "Stephen Hawking", "Dave Eggers", "Antonovsky Miriola", "Tom Kinjs", "Eduard Ben Israel", "Arkadi Putin" etc.</p>
+                    <p>Example: language = "English", author = "The New Boston" </p>
+
+                    <pre> 
+[{
+    "_id": "XXXXXXXXXXXXXXXXXXXX",
+    "Books": [
+        {
+            "Name": "English Book 4",
+            "Author": "The New Boston",
+            "Publish Date": "September 1, 1998",
+            "Product Code": "978-000000004",
+            "Purchase Link": "https://amzn.to/2wMc55K"
+        }
+    ]
+}]
+                    </pre>
+
+
+                    <p><span class="badge badge-success"><h2 class="badge badge-success">Full JSON View</h2></span></p>
+                    <pre> 
+{
+    "Must-Read Library": [{
+            "Language": "English",
+            "Books": [{
+                    "Name": "English Book 1",
+                    "Author": "George Orwell",
+                    "Publish Date": "July 1, 1950",
+                    "Product Code": "978-000000001",
+                    "Purchase Link": "https://amzn.to/2rO5gL7"
+                },
+                {
+                    "Name": "English Book 2",
+                    "Author": "Stephen Hawking",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000002",
+                    "Purchase Link": "https://amzn.to/2GuZ688"
+                },
+                {
+                    "Name": "English Book 3",
+                    "Author": "Dave Eggers",
+                    "Publish Date": "February 13, 2001",
+                    "Product Code": "978-000000003",
+                    "Purchase Link": "https://amzn.to/2ItZHbQ"
+                },
+                {
+                    "Name": "English Book 4",
+                    "Author": "The New Boston",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000004",
+                    "Purchase Link": "https://amzn.to/2wMc55K"
+                },
+                {
+                    "Name": "English Book 5",
+                    "Author": "Joseph Heller",
+                    "Publish Date": "April 5, 2011",
+                    "Product Code": "978-000000005",
+                    "Purchase Link": "https://amzn.to/2rPGkTo"
+                }
+            ]
+        },
+        {
+            "Language": "Spanish",
+            "Books": [{
+                    "Name": "Spanish Book 1",
+                    "Author": "Antonovsky Miriola",
+                    "Publish Date": "July 1, 1950",
+                    "Product Code": "978-000000006",
+                    "Purchase Link": "https://amzn.to/8rO5gL7"
+                },
+                {
+                    "Name": "Spanish Book 2",
+                    "Author": "Alana Petro Di Maria",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000007",
+                    "Purchase Link": "https://amzn.to/2GiZ688"
+                },
+                {
+                    "Name": "Spanish Book 3",
+                    "Author": "Don Over Dira",
+                    "Publish Date": "February 13, 2001",
+                    "Product Code": "978-000000008",
+                    "Purchase Link": "https://amzn.to/2ItZHsQ"
+                },
+                {
+                    "Name": "Spanish Book 4",
+                    "Author": "Tom Kinjs",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000009",
+                    "Purchase Link": "https://amzn.to/2wMc12K"
+                },
+                {
+                    "Name": "Spanish Book 5",
+                    "Author": "John Sebastian",
+                    "Publish Date": "April 5, 2011",
+                    "Product Code": "978-000000010",
+                    "Purchase Link": "https://amzn.to/2rUGTTo"
+                }
+            ]
+        },
+        {
+            "Language": "Russian",
+            "Books": [{
+                    "Name": "Russian Book 1",
+                    "Author": "Eduard Ben Israel",
+                    "Publish Date": "July 1, 1950",
+                    "Product Code": "978-000000011",
+                    "Purchase Link": "https://amzn.to/2r45gR7"
+                },
+                {
+                    "Name": "Russian Book 2",
+                    "Author": "Vladimir Petrovsky",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000012",
+                    "Purchase Link": "https://amzn.to/2GuJ648"
+                },
+                {
+                    "Name": "Russian Book 3",
+                    "Author": "Arkadi Putin",
+                    "Publish Date": "February 13, 2001",
+                    "Product Code": "978-000000013",
+                    "Purchase Link": "https://amzn.to/2KtZfbQ"
+                },
+                {
+                    "Name": "Russian Book 4",
+                    "Author": "Alexander Pidaras",
+                    "Publish Date": "September 1, 1998",
+                    "Product Code": "978-000000014",
+                    "Purchase Link": "https://amzn.to/2wnc51K"
+                },
+                {
+                    "Name": "Russian Book 5",
+                    "Author": "Yebanashka Pizdetz",
+                    "Date": "April 5, 2011",
+                    "Product Code": "978-000000015",
+                    "Purchase Link": "https://amzn.to/2rPEkZo"
+                }
+            ]
+        }
+    ]
+}
+                    </pre>
+
+                </main>
+
+                <footer>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

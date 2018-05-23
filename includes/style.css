@@ -1,0 +1,25 @@
+* {
+    margin: 0 auto;
+    padding: 0px;
+    text-decoration: none;
+}
+
+body {
+    margin: 0 auto;
+}
+
+span {
+    color: blue;
+}
+
+h4 {
+    color: #7d0d23 !important;
+}
+
+main>article {
+    padding-bottom: 10px;
+}
+
+#special {
+    font-size: 90%;
+}
